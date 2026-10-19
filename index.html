@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chuti's Special Day 💖</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Abhaya+Libre:wght@600;700&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="bg"></canvas><div class="aurora"></div>
+<div id="vl"><video class="bgv" data-k="moon" data-src="assets/video/moon.mp4" muted loop playsinline preload="none"></video><video class="bgv" data-k="gift" data-src="assets/video/gift.mp4" muted loop playsinline preload="none"></video><video class="bgv" data-k="giftopen" data-src="assets/video/gift-open.mp4" muted playsinline preload="none"></video><video class="bgv" data-k="hearts" data-src="assets/video/hearts.mp4" muted loop playsinline preload="none"></video><video class="bgv" data-k="lanterns" data-src="assets/video/lanterns.mp4" muted loop playsinline preload="none"></video><video class="bgv" data-k="balloons" data-src="assets/video/balloons.mp4" muted loop playsinline preload="none"></video><video class="bgv" data-k="fireworks" data-src="assets/video/fireworks.mp4" muted loop playsinline preload="none"></video></div><div class="vshade"></div>
+<canvas id="spark"></canvas>
+
+<!-- S0: countdown gate -->
+<section class="scene on" id="s0">
+  <span class="tag">Counting down</span>
+  <h1>Chuti's Special Day<em>is Coming</em></h1>
+  <p class="sub">Something beautiful is waiting for you ✦</p>
+  <div class="flip" id="flip">
+    <div class="fl"><b>00</b><span>days</span></div><div class="fl"><b>00</b><span>hours</span></div>
+    <div class="fl"><b>00</b><span>minutes</span></div><div class="fl"><b>00</b><span>seconds</span></div>
+  </div>
+  <p class="sub" style="font-size:1.05rem">Enter the magical date (MMDD) to unlock your surprise ❤️</p>
+  <input id="code" type="password" inputmode="numeric" maxlength="4" autocomplete="off" aria-label="Magical date, four digits" placeholder="••••">
+  <p id="hint" role="status"></p>
+  <button class="btn" id="goBtn" disabled data-next>Waiting for the moment…</button>
+</section>
+
+<!-- S1: gift -->
+<section class="scene" id="s1">
+  <span class="tag">There is something for you</span>
+  <button class="tapzone" id="gift" aria-label="Open your gift"><span class="tapring"></span></button>
+  <p class="sub">tap to open your gift ✨</p>
+</section>
+
+<!-- S2: title with flying polaroids -->
+<section class="scene" id="s2">
+  <span class="tag">A letter just for you</span>
+  <h1 class="big">Your<em>Special Day</em></h1>
+  <p class="sub">24 years of you, Chuti, and the world is brighter for it</p>
+  <button class="btn" data-next>Continue</button>
+</section>
+
+<!-- S3: typewriter letter -->
+<section class="scene" id="s3">
+  <h1>Happy Birthday</h1>
+  <article class="card glass tilt">
+    <p class="hd" data-t>මගේ චුටීට, සුභම සුභ උපන් දිනයක් වේවා! 💕</p>
+    <p data-t>ඔයාගේ මේ විශේෂ දවසේ ඔයාට කියන්න ඕන වුණේ ඔයා මගේ ජීවිතයට ආපු ලස්සනම එළිය කියලා. මගේ සතුට, මගේ හිනාව හැමදේම ඔයා. අද වගේම හැමදාමත් ඔයාට සතුටින්, ආදරයෙන් ඉන්න ලැබෙන්න කියලා මම ප්‍රාර්ථනා කරනවා. මම ඔයාට ගොඩාක් ආදරෙයි චුටී! ❤️</p>
+    <p class="sig" data-t>- හැමදාමත් ඔයාටම, Udara</p>
+  </article>
+  <button class="btn next" data-next>Our memories</button>
+</section>
+
+<!-- S4: polaroid wall -->
+<section class="scene" id="s4">
+  <h1>Our Little Memories</h1>
+  <div class="wall" id="wall"></div>
+  <button class="btn" data-next>Continue</button>
+</section>
+
+<!-- S5: 3D cake -->
+<section class="scene" id="s5">
+  <h1>Make a Wish ✨</h1>
+  <div class="cakeWrap">
+    <div class="cpop" id="cakePop" role="status"></div>
+    <div id="cakeBox" tabindex="0" role="button" aria-label="Birthday cake with the number 24. Tap it to blow out the candles"><canvas id="cake3d"></canvas></div>
+  </div>
+  <p class="cm" id="cakeMsg" role="status"></p>
+  <p class="tag" id="cakeHint">Mic එකට පිඹින්න, නැත්නම් කේක් එක touch කරන්න 🎤</p>
+  <button class="btn next" id="cakeNext" data-next>Continue</button>
+</section>
+
+<!-- S6: wishes -->
+<section class="scene" id="s6">
+  <h1>Birthday Wishes</h1>
+  <article class="card w glass tilt">
+    <p>Happy Birthday, Chuti ❤️</p>
+    <p>I wish you happiness, good health, and every dream you hold close. May this year bring laughter, little adventures, and everything that makes you smile. Thank you for being the very best part of my days.</p>
+  </article>
+  <div><button class="btn" id="reveal">Reveal Secret Message</button> <button class="btn" data-next>Finish</button></div>
+</section>
+
+<!-- S7: finale -->
+<section class="scene" id="s7">
+  <h2 class="shim">With All My Love</h2>
+  <p class="sub">Thank you for being part of my life, Chuti.</p>
+  <p class="sub">Forever yours, Udara 💞</p>
+  <button class="btn" id="replay">Watch again</button>
+</section>
+
+<div class="ov" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"><button class="lbn l" id="lbPrev" aria-label="Previous photo">‹</button><button class="lbn r" id="lbNext" aria-label="Next photo">›</button><figure><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure></div>
+<div class="ov" id="secret" role="dialog" aria-modal="true" aria-label="Secret message"><div class="note glass"><h2>You are my favourite person, Chuti 💖</h2><p>Every ordinary day becomes a celebration with you in it. I promise a lifetime of birthdays, laughter and ridiculous adventures together. Happy 24th, my forever.</p><button class="x" id="closeS">Close</button></div></div>
+
+<div id="player" class="glass">
+  <button id="play" aria-label="Play music">▶</button><div id="viz" aria-hidden="true"></div>
+  <small id="sname">Birthday melody</small><label>Add song<input id="song" type="file" accept="audio/*"></label>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
